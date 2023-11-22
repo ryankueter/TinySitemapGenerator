@@ -55,13 +55,13 @@ await sitemap.DownloadSitemapIndexAsync();
 
 // Get the file bytes
 var bytes = await sitemap.GetSitemapBytesAsync();
-await File.WriteAllBytesAsync(Path.Combine(@"C:\Users\rkuet\OneDrive\Desktop\Test2", "sitemap.xml"), bytes);
+await File.WriteAllBytesAsync(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes);
 
 // Generate a XML sitemap index because
 // you have more than 50,000 urls or your
 // files exceed 50MB
 var bytes = await sitemap.GetSitemapIndexBytesAsync();
-await File.WriteAllBytesAsync(Path.Combine(@"C:\Users\rkuet\OneDrive\Desktop\Test2", "sitemap.xml"), bytes);
+await File.WriteAllBytesAsync(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes);
 ``` 
 
 ###
