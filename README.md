@@ -38,12 +38,30 @@ sitemap.SitemapUrls.Add(
 );
 
 // Generate a standard XML sitemap
-sitemap.GenerateSitemap();
+sitemap.DownloadSitemap();
 
 // Generate a XML sitemap index because
 // you have more than 50,000 urls or your
 // files exceed 50MB
-sitemap.GenerateSitemapIndex();
+sitemap.DownloadSitemapIndex();
+
+// Generate a standard XML sitemap
+await sitemap.DownloadSitemapAsync();
+
+// Generate a XML sitemap index because
+// you have more than 50,000 urls or your
+// files exceed 50MB
+await sitemap.DownloadSitemapIndexAsync();
+
+// Get the file bytes
+var bytes = await sitemap.GetSitemapBytesAsync();
+await File.WriteAllBytesAsync(Path.Combine(@"C:\Users\rkuet\OneDrive\Desktop\Test2", "sitemap.xml"), bytes);
+
+// Generate a XML sitemap index because
+// you have more than 50,000 urls or your
+// files exceed 50MB
+var bytes = await sitemap.GetSitemapIndexBytesAsync();
+await File.WriteAllBytesAsync(Path.Combine(@"C:\Users\rkuet\OneDrive\Desktop\Test2", "sitemap.xml"), bytes);
 ``` 
 
 ###
