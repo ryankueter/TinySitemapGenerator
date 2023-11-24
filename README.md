@@ -30,7 +30,7 @@ sitemap.SitemapOptionalNamespaces.Add(SitemapOptionalNamespace.News);
 // Add Sitemap Urls
 sitemap.SitemapUrls.Add(
     new SitemapUrl { 
-        Location = "www.mysite.com/article/tutorial.html",
+        Location = "http://www.mysite.com/article/tutorial.html",
         LastModified = DateTime.Now,
         Priority = SitemapPriorities.Nine,
         ChangeFrequency = SitemapChangeFrequencies.Never
@@ -38,20 +38,20 @@ sitemap.SitemapUrls.Add(
 );
 
 // Generate a standard XML sitemap
-sitemap.DownloadSitemap();
+sitemap.SaveSitemap();
 
 // Generate a XML sitemap index because
 // you have more than 50,000 urls or your
 // files exceed 50MB
-sitemap.DownloadSitemapIndex();
+sitemap.SaveSitemapIndex();
 
 // Generate a standard XML sitemap
-await sitemap.DownloadSitemapAsync();
+await sitemap.SaveSitemapAsync();
 
 // Generate a XML sitemap index because
 // you have more than 50,000 urls or your
 // files exceed 50MB
-await sitemap.DownloadSitemapIndexAsync();
+await sitemap.SaveSitemapIndexAsync();
 
 // Get the file bytes
 var bytes = await sitemap.GetSitemapBytesAsync();
