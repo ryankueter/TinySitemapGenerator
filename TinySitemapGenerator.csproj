@@ -4,16 +4,16 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.4</Version>
 		<Authors>Ryan A. Kueter</Authors>
 		<Company>Ryan A. Kueter</Company>
+		<Copyright>Ryan A. Kueter</Copyright>
 		<Description>TinySitemapGenerator is a free .NET library that provides a simple way to create a sitemap or a sitemap index for your website.</Description>
 		<RepositoryUrl>https://github.com/ryankueter/TinySitemapGenerator</RepositoryUrl>
-		<PackageReleaseNotes>Renamed methods SaveSitemap(), SaveSitemapIndex(), SaveSitemapAsync(), SaveSitemapIndexAsync() to make them more intuitive and depricated the old methods by marking them obsolete.</PackageReleaseNotes>
+		<PackageReleaseNotes>Removed depricated methods.</PackageReleaseNotes>
 		<PackageTags>C#;Sitemap;SitemapIndex</PackageTags>
-		<AssemblyVersion>1.0.4</AssemblyVersion>
-		<FileVersion>1.0.4</FileVersion>
-		<Copyright>Ryan A. Kueter</Copyright>
+		<Version>1.0.5</Version>
+		<AssemblyVersion>1.0.5</AssemblyVersion>
+		<FileVersion>1.0.5</FileVersion>
 		<PackageProjectUrl>https://github.com/ryankueter/TinySitemapGenerator</PackageProjectUrl>
 		<RepositoryType>Git</RepositoryType>
 		<Product>$(AssemblyName)</Product>

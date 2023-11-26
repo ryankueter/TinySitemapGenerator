@@ -36,29 +36,7 @@ public sealed class Sitemap
     /// Save Sitemap - Synchronous
     /// </summary>
     public void SaveSitemap() => new XDocument(GenerateSitemap()).Save(Path.Combine(Filepath, "sitemap.xml"));
-
-    /// <summary>
-    /// Download Sitemap - Synchronous
-    /// </summary>
-    [Obsolete("DownloadSitemap is obsolete. Use SaveSitemap instead.")]
-    public void DownloadSitemap() => new XDocument(GenerateSitemap()).Save(Path.Combine(Filepath, "sitemap.xml"));
-    
-    /// <summary>
-    /// Save Sitemap - Asynchronous
-    /// </summary>
-    public async Task SaveSitemapAsync() => await SaveAsync(new XDocument(GenerateSitemap()));
-
-    /// <summary>
-    /// Download Sitemap - Asynchronous
-    /// </summary>
-    [Obsolete("DownloadSitemapAsync is obsolete. Use SaveSitemapAsync instead.")]
-    public async Task DownloadSitemapAsync() => await SaveAsync(new XDocument(GenerateSitemap()));
-
-    /// <summary>
-    /// Download Sitemap Index - Asynchronous
-    /// </summary>
-    public async Task<byte[]> GetSitemapBytesAsync() => await GetBytesAsync(new XDocument(GenerateSitemap()));
-
+        
     /// <summary>
     /// Save Sitemap Index - Synchronous
     /// </summary>
@@ -67,8 +45,17 @@ public sealed class Sitemap
     /// <summary>
     /// Download Sitemap Index - Synchronous
     /// </summary>
-    [Obsolete("DownloadSitemapIndex is obsolete. Use SaveSitemapIndex instead.")]
-    public void DownloadSitemapIndex() => new XDocument(GenerateSitemapIndex()).Save(Path.Combine(Filepath, "sitemap.xml"));
+    public byte[] GetSitemapBytes() => GetBytes(new XDocument(GenerateSitemap()));
+
+    /// <summary>
+    /// Download Sitemap Index - Synchronous
+    /// </summary>
+    public byte[] GetSitemapIndexBytes() => GetBytes(new XDocument(GenerateSitemapIndex()));
+
+    /// <summary>
+    /// Save Sitemap - Asynchronous
+    /// </summary>
+    public async Task SaveSitemapAsync() => await SaveAsync(new XDocument(GenerateSitemap()));
 
     /// <summary>
     /// Save Sitemap Index - Asynchronous
@@ -78,8 +65,7 @@ public sealed class Sitemap
     /// <summary>
     /// Download Sitemap Index - Asynchronous
     /// </summary>
-    [Obsolete("DownloadSitemapIndexAsync is obsolete. Use SaveSitemapIndexAsync instead.")]
-    public async Task DownloadSitemapIndexAsync() => await SaveAsync(new XDocument(GenerateSitemapIndex()));
+    public async Task<byte[]> GetSitemapBytesAsync() => await GetBytesAsync(new XDocument(GenerateSitemap()));
 
     /// <summary>
     /// Download Sitemap Index - Asynchronous
@@ -95,13 +81,30 @@ public sealed class Sitemap
     }
 
     /// <summary>
+    /// Download synchronous
+    /// </summary>
+    /// <param name="sitemap"></param>
+    /// <returns></returns>
+    private byte[] GetBytes(XDocument sitemap)
+    {
+        // Create a memory stream
+        using var memoryStream = new MemoryStream();
+
+        // Use asynchronous method to write the XML content to the MemoryStream
+        sitemap.Save(memoryStream, SaveOptions.None);
+
+        // Return the byte array
+        return memoryStream.ToArray();
+    }
+
+    /// <summary>
     /// Download async
     /// </summary>
     /// <returns></returns>
     private async Task<byte[]> GetBytesAsync(XDocument sitemap)
     {
         // Create a memory stream
-        using MemoryStream memoryStream = new MemoryStream();
+        using var memoryStream = new MemoryStream();
 
         // Use asynchronous method to write the XML content to the MemoryStream
         await sitemap.SaveAsync(memoryStream, SaveOptions.None, default);

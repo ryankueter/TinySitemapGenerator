@@ -30,20 +30,14 @@ sitemap.SitemapOptionalNamespaces.Add(SitemapOptionalNamespace.News);
 // Add Sitemap Urls
 sitemap.SitemapUrls.Add(
     new SitemapUrl { 
-        Location = "http://www.mysite.com/article/tutorial.html",
+        Location = "https://www.mysite.com/article/tutorial.html",
         LastModified = DateTime.Now,
         Priority = SitemapPriorities.Nine,
         ChangeFrequency = SitemapChangeFrequencies.Never
     }
 );
 
-// Generate a standard XML sitemap
-sitemap.SaveSitemap();
-
-// Generate a XML sitemap index because
-// you have more than 50,000 urls or your
-// files exceed 50MB
-sitemap.SaveSitemapIndex();
+// Asychronous Methods
 
 // Generate a standard XML sitemap
 await sitemap.SaveSitemapAsync();
@@ -62,6 +56,26 @@ await File.WriteAllBytesAsync(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes)
 // files exceed 50MB
 var bytes = await sitemap.GetSitemapIndexBytesAsync();
 await File.WriteAllBytesAsync(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes);
+
+// Sychronous Methods
+
+// Generate a standard XML sitemap
+sitemap.SaveSitemap();
+
+// Generate a XML sitemap index because
+// you have more than 50,000 urls or your
+// files exceed 50MB
+sitemap.SaveSitemapIndex();
+
+// Get the file bytes
+var bytes = sitemap.GetSitemapBytes();
+File.WriteAllBytes(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes);
+
+// Generate a XML sitemap index because
+// you have more than 50,000 urls or your
+// files exceed 50MB
+var bytes = sitemap.GetSitemapIndexBytes();
+File.WriteAllBytes(Path.Combine(@"C:\wwwroot", "sitemap.xml"), bytes);
 ``` 
 
 ###
