@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -9,11 +9,11 @@
 		<Copyright>Ryan A. Kueter</Copyright>
 		<Description>TinySitemapGenerator is a free .NET library that provides a simple way to create a sitemap or a sitemap index for your website.</Description>
 		<RepositoryUrl>https://github.com/ryankueter/TinySitemapGenerator</RepositoryUrl>
-		<PackageReleaseNotes>Removed depricated methods.</PackageReleaseNotes>
+		<PackageReleaseNotes>Added a .NET 9 target.</PackageReleaseNotes>
 		<PackageTags>C#;Sitemap;SitemapIndex</PackageTags>
-		<Version>1.0.5</Version>
-		<AssemblyVersion>1.0.5</AssemblyVersion>
-		<FileVersion>1.0.5</FileVersion>
+		<Version>1.0.6</Version>
+		<AssemblyVersion>1.0.6</AssemblyVersion>
+		<FileVersion>1.0.6</FileVersion>
 		<PackageProjectUrl>https://github.com/ryankueter/TinySitemapGenerator</PackageProjectUrl>
 		<RepositoryType>Git</RepositoryType>
 		<Product>$(AssemblyName)</Product>
@@ -23,13 +23,13 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Update="LICENSE">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-		<None Update="README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
+	  <None Include="LICENSE">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 </Project>

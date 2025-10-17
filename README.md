@@ -1,14 +1,14 @@
 # TinySitemapGenerator
 
 Author: Ryan Kueter  
-Updated: November, 2023
+Updated: December, 2024
 
 ## About
 
 **TinySitemapGenerator** is a free .NET library available from the [NuGet Package Manager](https://www.nuget.org/packages/TinySitemapGenerator) that provides a simple way to create a sitemap or a sitemap index for your website.
 
 ### Targets:
-- .NET 8
+- .NET 8 - .NET 9
 
 ## Introduction
 
